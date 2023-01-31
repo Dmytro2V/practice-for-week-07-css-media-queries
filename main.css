@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     font-family: sans-serif;
 }
@@ -20,11 +21,14 @@ header {
 .content {
     gap: 1rem;
     display: flex;
+
 }
-.content > div {
+
+.content>div {
     flex: 1 1 100%;
 }
-.content > div:first-child {
+
+.content>div:first-child {
     flex: 0;
 }
 
@@ -74,9 +78,11 @@ header {
 .page {
     flex-direction: column;
 }
+
 .content {
     flex-direction: column;
 }
+
 .sidebar {
     flex-direction: row;
     justify-content: center;
@@ -85,13 +91,76 @@ header {
 /* ----- Phase 1 - Moderate Screen ----- */
 
 /* Your code here */
+@media screen and (width > 820px) {
+    .content {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 
 /* ----- Phase 1 - Wide Screen ----- */
 
 /* Your code here */
+@media screen and (width >=1220px) {
+    .page {
+        flex-direction: row;
+    }
+}
+
 
 /* ===== PRINTING ===== */
 
 /* Phase 2 */
 
-/* Your code here */
+/* Your code here - with bonus. Bonus image extracted from mockup*/ 
+
+/* version 1 - using 'absolute' pos, need addidion element in index.html */
+@media print {  
+    header, .sidebar, .image-box {
+        display: none;
+    }
+    .story-box {
+        background-color: white;        
+        filter: unset;
+    }
+    .content {
+        flex-direction: row;
+    }
+
+    .print-logo {
+        position: absolute;
+        top: 55px;
+        right: 30px;
+        background-image: url("print.png");
+        background-repeat: no-repeat;
+
+        height: 50px;
+        width: 100px;
+    }
+
+}
+/* version 1(cannot move lower then -2px), but no need to touch index.html */
+/*@media print {
+    header, .sidebar, .image-box {
+        display: none;
+    }
+    .story-box {
+        background-color: white;        
+        filter: unset;        
+        background-image: url("print.png");
+        background-repeat: no-repeat;
+        background-position: bottom -2px right 30px;      
+        
+        height: 50px;
+        width: 50px;        
+    }
+    .content {
+        flex-direction: row;
+    }
+}
+*/
